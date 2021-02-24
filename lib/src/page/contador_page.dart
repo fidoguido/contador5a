@@ -9,13 +9,13 @@ class ContadorPage extends StatefulWidget {
 //Clase controla el estado
 class _ContadorPage extends State<ContadorPage> {
   final estiloTexto = new TextStyle(fontSize: 30.0);
-  int conteo = 10;
+  int conteo = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Contador'),
+        title: Text('Contador App'),
       ),
       body: Center(
         child: Column(
@@ -45,34 +45,37 @@ class _ContadorPage extends State<ContadorPage> {
         SizedBox(width: 30.0),
         FloatingActionButton(
           child: Icon(Icons.add),
-          onPressed: () {
-            setState(() {
-              conteo++;
-            });
-          },
+          onPressed: _agregar,
         ),
         SizedBox(
           width: 10.0,
         ),
-        FloatingActionButton(
-            child: Icon(Icons.remove),
-            onPressed: () {
-              setState(() {
-                conteo--;
-              });
-            }),
+        FloatingActionButton(child: Icon(Icons.remove), onPressed: _disminuir),
         Expanded(child: SizedBox()),
         FloatingActionButton(
-            child: Icon(Icons.exposure_zero),
-            onPressed: () {
-              setState(() {
-                conteo = 0;
-              });
-            }),
+            child: Icon(Icons.exposure_zero), onPressed: _enCerar),
         SizedBox(
           width: 30.0,
         )
       ],
     );
+  }
+
+  void _agregar() {
+    setState(() {
+      conteo++;
+    });
+  }
+
+  void _disminuir() {
+    setState(() {
+      conteo--;
+    });
+  }
+
+  void _enCerar() {
+    setState(() {
+      conteo = 0;
+    });
   }
 }
