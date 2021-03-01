@@ -15,7 +15,14 @@ class _ContadorPage extends State<ContadorPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Contador App'),
+        title: Center(
+          child: Column(
+            children: [
+              Text('Contador App'),
+              Text('cualquier cosa'),
+            ],
+          ),
+        ),
       ),
       body: Center(
         child: Column(
@@ -63,13 +70,15 @@ class _ContadorPage extends State<ContadorPage> {
 
   void _agregar() {
     setState(() {
-      conteo++;
+      conteo += 1;
+      //conteo = conteo + 1;
     });
   }
 
   void _disminuir() {
     setState(() {
-      conteo--;
+      //conteo--;
+      conteo = conteo - 1;
     });
   }
 
